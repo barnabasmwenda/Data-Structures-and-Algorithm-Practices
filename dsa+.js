@@ -108,3 +108,30 @@ const getLongestString = (arr) => {
   return longestString;
 };
 // console.log(getLongestString(["apple", "banana", "orange", "kiwi", "grape"]));
+
+// Write a JavaScript function that takes an array of numbers as input
+// and returns the median of the numbers. The median is the middle value of a sorted list of numbers.
+// If the number of elements is even, it returns the average of the two middle numbers.
+// For example, given the input array [3, 5, 1, 2, 4], the function should return 3
+// since it's the median of the sorted list [1, 2, 3, 4, 5].x
+const oddNumberArray = [7, 2, 9, 4, 5];
+const evenNumberArray = [6, 3, 1, 9, 2, 8];
+
+const getArrayMedian = (arr) => {
+  const sortedArray = arr.sort((a, b) => a - b);
+  let median = 0;
+
+  if (arr.length % 2 !== 0) {
+    const middleIndex = Math.floor(arr.length / 2);
+    median = sortedArray[middleIndex];
+  } else {
+    const middleIndex1 = arr.length / 2 - 1;
+    const middleIndex2 = arr.length / 2;
+    median = (sortedArray[middleIndex1] + sortedArray[middleIndex2]) / 2;
+  }
+
+  return median;
+};
+
+console.log(getArrayMedian(oddNumberArray));
+console.log(getArrayMedian(evenNumberArray));
