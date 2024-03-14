@@ -133,5 +133,33 @@ const getArrayMedian = (arr) => {
   return median;
 };
 
-console.log(getArrayMedian(oddNumberArray));
-console.log(getArrayMedian(evenNumberArray));
+//console.log(getArrayMedian(oddNumberArray));
+// console.log(getArrayMedian(evenNumberArray));
+
+// Write a JavaScript function that takes an array of strings as input
+// and returns an object containing the frequency of each string in the array.
+// For example, given the input array ["apple", "banana", "apple", "orange", "banana", "apple"],
+// the function should return { "apple": 3, "banana": 2, "orange": 1 }.
+
+const getFrequencyOfElements = (arr) => {
+  const frequencyObject = {};
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+    if (frequencyObject[element]) {
+      frequencyObject[element]++;
+    } else {
+      frequencyObject[element] = 1;
+    }
+  }
+  return frequencyObject;
+};
+
+const frequencyCountArray = [
+  "apple",
+  "banana",
+  "apple",
+  "orange",
+  "banana",
+  "apple",
+];
+console.log(getFrequencyOfElements(frequencyCountArray));
