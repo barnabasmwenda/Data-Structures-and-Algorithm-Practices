@@ -162,4 +162,161 @@ const frequencyCountArray = [
   "banana",
   "apple",
 ];
-console.log(getFrequencyOfElements(frequencyCountArray));
+//console.log(getFrequencyOfElements(frequencyCountArray));
+
+// Write a JavaScript function that takes an array of numbers as input and
+// returns an object containing the count of even and odd numbers in the array.
+// For example, given the input array [1, 2, 3, 4, 5],
+// the function should return { "even": 2, "odd": 3 }.
+
+const getEvenAndOddCount = (arr) => {
+  let countObject = {
+    even: 0,
+    odd: 0,
+  };
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      countObject.even++;
+    } else {
+      countObject.odd++;
+    }
+  }
+  return countObject;
+};
+
+// console.log(getEvenAndOddCount([1, 2, 3, 4, 5]));
+
+// Write a JavaScript function that takes an array of integers as input and
+// returns an object containing the count of positive and negative numbers in the array.
+// For example, given the input array [-2, 5, 3, -8, 0, 1, -6],
+// the function should return { "positive": 3, "negative": 3 }.
+
+const getPositiveAndNegativeCount = (arr) => {
+  let countObject = {
+    positive: 0,
+    negative: 0,
+  };
+
+  const isPositive = (number) => {
+    return number > 0;
+  };
+
+  for (let i = 0; i < arr.length; i++) {
+    if (isPositive(arr[i])) {
+      countObject.positive++;
+    } else if (arr[i] < 0) {
+      countObject.negative++;
+    }
+  }
+
+  return countObject;
+};
+
+// console.log(getPositiveAndNegativeCount([-2, 5, 3, -8, 0, 1, -6]));
+
+// Write a JavaScript function that takes an array of strings as input and
+// returns an object containing the count of strings
+// with lengths divisible by 3 and lengths not divisible by 3.
+// For example, given the input array ["cat", "dog", "elephant", "lion", "tiger"],
+// the function should return { "divisibleByThree": 2, "notDivisibleByThree": 3 }.
+
+const getStringLengthsDivisibleByThree = (arr) => {
+  let divisibilityObject = {
+    divisibleByThree: 0,
+    notDivisibleByThree: 0,
+  };
+
+  const isDivisibleByThree = (num) => {
+    return num % 3 === 0;
+  };
+
+  for (let i = 0; i < arr.length; i++) {
+    if (isDivisibleByThree(arr[i].length)) {
+      divisibilityObject.divisibleByThree++;
+    } else {
+      divisibilityObject.notDivisibleByThree++;
+    }
+  }
+
+  return divisibilityObject;
+};
+
+// console.log(
+//   getStringLengthsDivisibleByThree(["cat", "dog", "elephant", "lion", "tiger"])
+// );
+
+// Write a JavaScript function that takes an array of numbers as input and
+// returns the difference between the largest and smallest numbers in the array.
+// For example, given the input array [10, 3, 5, 9, 2], the function should return 8,
+// as the difference between the largest number (10) and the smallest number (2) is 8.
+const getLargestAndSmallestNumberDifference = (arr) => {
+  let sortedArray = arr.sort((a, b) => a - b);
+  return sortedArray[sortedArray.length - 1] - sortedArray[0];
+};
+
+// console.log(getLargestAndSmallestNumberDifference([10, 3, 5, 9, 2]));
+
+// Write a JavaScript function that takes an array of integers as input and
+// returns the sum of the squares of all positive numbers in the array.
+// If the array is empty or contains no positive numbers, return 0.
+// For example, given the input array [2, -3, 4, -5, 6],
+// the function should return 56 (2^2 + 4^2 + 6^2 = 4 + 16 + 36 = 56).
+
+const getSumOfPositiveNumberSquares = (arr) => {
+  let finalAmount = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
+      finalAmount += arr[i] * arr[i];
+    }
+  }
+
+  return finalAmount;
+};
+
+//console.log(getSumOfPositiveNumberSquares([2, -3, 4, -5, 6]));
+
+// Write a function called getSecondLargestNumber that takes an array of numbers as input and
+// returns the second largest number in the array. If there's no second largest number, return null.
+// For example, getSecondLargestNumber([10, 5, 8, 12, 7]) should return 10.
+
+const getSecondLargestNumber = (arr) => {
+  let sortedArray = arr.sort((a, b) => a - b);
+  if (sortedArray.length < 2) {
+    return null;
+  }
+  return sortedArray[sortedArray.length - 2];
+};
+
+// console.log(getSecondLargestNumber([10, 5, 8, 12, 7]));
+// console.log(getSecondLargestNumber([10])); // Output: null
+// console.log(getSecondLargestNumber([]));
+
+// Write a JavaScript function that takes an array of strings as input and
+// returns an array containing only the strings that have more than three characters and start with the letter 'a'.
+// For example, given the input array ["apple", "banana", "orange", "kiwi", "grape"],
+// the function should return ["apple", "banana", "orange"].,
+
+const getStringsOverThreeCharactersStartingWithA = (arr) => {
+  let finalArray = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > 3 && arr[i][0] === "a") {
+      finalArray.push(arr[i]);
+    }
+  }
+
+  return finalArray;
+};
+
+console.log(
+  getStringsOverThreeCharactersStartingWithA([
+    "apple",
+    "kiwi",
+    "grape",
+    "is",
+    "it",
+    "army",
+  ])
+);
